@@ -1,0 +1,26 @@
+{
+  "name": "webgl-next-test",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-hook/mouse-position": "^4.1.3",
+    "@react-hook/window-size": "^3.1.1",
+    "@react-three/fiber": "^8.8.10",
+    "gl-matrix": "^3.4.3",
+    "next": "12.3.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sass": "^1.55.0",
+    "simplex-noise": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "8.25.0",
+    "eslint-config-next": "12.3.1"
+  }
+}
