@@ -1,10 +1,10 @@
 const MenuItems = [
-        'CHARGED PLANE',
-        'WAVES',
-        'RED-BLUE PLANE',
-        'LAVA',
-        'GHOSTLY PLANE',
-        'MICROBIAL DISPLACEMENT',
+        {title: 'CHARGED PLANE', url: 'charged-plane'},
+        {title: 'GENERATED WAVES', url: 'generated-waves'},
+        {title: 'RED-BLUE PLANE', url: 'red-blue-plane'},
+        {title: 'LAVA', url: 'lava'},
+        {title: 'GHOSTLY PLANE', url: 'ghost-plane'},
+        {title: 'MICROBIAL DISPLACEMENT', url: 'microbial-displacement'},
     ]
  
 export default MenuItems;

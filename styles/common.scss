@@ -1,0 +1,21 @@
+button {
+    background-color: #305B47;
+    border: 1px solid #FFFFFF;
+    border-radius: 12px;
+    color: white;
+    font-size: 1em;
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: #1B948C;
+    cursor: pointer;
+}
+
+.backArrow {
+    padding: '10px 15px';
+}
+
+.backArrow:hover {
+    opacity: 0.8;
+}

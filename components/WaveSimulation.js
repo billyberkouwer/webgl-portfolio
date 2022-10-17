@@ -213,8 +213,6 @@ export default function WaveSimulation(props) {
   }, [init])
 
   return (
-    <div style={{padding: 0, margin: 0}}>
-      <canvas ref={canvas} style={{backgroundColor: 'blue', height: '100vh', width: '100%', padding: 0, margin: 0}} width={4000} height={2000}></canvas>
-    </div>
+    <canvas ref={canvas} style={{backgroundColor: 'blue', height: '100vh', width: '100%', padding: 0, margin: 0, position: 'absolute', top: 0, left: 0}} width={4000} height={2000}></canvas>
   )
 }

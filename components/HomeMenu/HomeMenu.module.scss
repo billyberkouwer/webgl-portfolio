@@ -1,4 +1,17 @@
 .menuItem {
     color: white;
     position: absolute;
+    white-space: nowrap;
+    transform-origin: center;
+    padding: 5px;
+}
+
+.menuContainer {
+    height: 100vh;
+    width: calc(100vw - 5vh);
+    position: absolute;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

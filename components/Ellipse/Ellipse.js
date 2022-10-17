@@ -5,7 +5,7 @@ export default function Ellipse({ mousePosition }) {
     <div
       style={{
         top: mousePosition.y ? 50 - mousePosition.y / 10 : "0px",
-        right: mousePosition.x ? -50 + mousePosition.x / 10 : "0px",
+        right: mousePosition.x ? -50 + mousePosition.x / 5 : "0px",
         position: "absolute",
       }}
       className={styles.ellipse}

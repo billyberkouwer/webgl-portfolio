@@ -1,9 +1,7 @@
-import useMouse from "@react-hook/mouse-position";
-import { useEffect, useRef } from "react";
 import Ellipse from "../components/Ellipse/Ellipse";
-import Ellipse2 from "../components/Ellipse/Ellipse2";
-import Header from "../components/Header/Header";
 import HomeMenu from "../components/HomeMenu/HomeMenu";
+import useMouse from "@react-hook/mouse-position";
+import { useRef } from "react";
 
 export default function Home() {
   const pageRef = useRef();
@@ -13,8 +11,7 @@ export default function Home() {
   });
 
   return (
-    <div ref={pageRef} className="pageContainer">
-      <Header />
+    <div ref={pageRef}>
       <Ellipse mousePosition={mousePosition}/>
       <HomeMenu />
     </div>
