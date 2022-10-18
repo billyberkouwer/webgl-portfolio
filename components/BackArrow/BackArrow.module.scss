@@ -1,0 +1,23 @@
+.arrowContainer {
+    padding: 15px 15px;
+}
+
+.arrow {
+    z-index: 9;
+}
+
+.arrow:hover {
+    animation: 0.25s rotateArrow linear;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes rotateArrow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-10deg);
+    }
+}

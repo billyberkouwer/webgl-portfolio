@@ -3,7 +3,7 @@ import HomeMenu from "../components/HomeMenu/HomeMenu";
 import useMouse from "@react-hook/mouse-position";
 import { useRef } from "react";
 
-export default function Home() {
+export default function Home({width, height}) {
   const pageRef = useRef();
   const mousePosition = useMouse(pageRef, {
     enterDelay: 100,
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div ref={pageRef}>
       <Ellipse mousePosition={mousePosition}/>
-      <HomeMenu />
+      <HomeMenu width={width} height={height}/>
     </div>
   );
 }
