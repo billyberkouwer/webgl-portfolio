@@ -5,9 +5,11 @@ import useMouse from "@react-hook/mouse-position";
 const BackgroundLines = forwardRef(({width, height, noiseDisplacement}, ref) => {
   const canvas = useRef();
   const newRef = useRef();
+  const time = useRef(0);
+  const mousePositionRef = useRef({x: 0, y: 0})
   const mousePosition = useMouse(ref, {
-    enterDelay: 100,
-    leaveDelay: 100,
+    enterDelay: 0,
+    leaveDelay: 0,
   });
 
   useEffect(() => {
@@ -179,14 +181,20 @@ const BackgroundLines = forwardRef(({width, height, noiseDisplacement}, ref) => 
     mat4.invert(viewMatrix, viewMatrix);
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
-
-    let mousePos;
-    let time = 0;
+    let mousePos = 0;
+    
+    if (mousePosition.x !== null) {
+      mousePositionRef.current.x = mousePosition.x;
+    }
+    if (mousePosition.y !== null) {
+      mousePositionRef.current.y = mousePosition.y;
+    }
 
     function animate() {
       loop = requestAnimationFrame(animate);
-      time+=0.1;
-      mousePos = mousePosition.x && mousePosition.y ? (mousePosition.x/10) + (mousePosition.y/10) + time : 0;
+      time.current+=1;
+      mousePos = (-mousePositionRef.current.y/10 ) + (-mousePositionRef.current.x/10 ) + time.current;
+      console.log(mousePos)
       createColor(mousePos / 200);
       let displacedVertexes = generatePointVertex(mousePos);
       gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
@@ -220,7 +228,7 @@ const BackgroundLines = forwardRef(({width, height, noiseDisplacement}, ref) => 
       cancelAnimationFrame(loop);
     };
     
-  }, [width, height, mousePosition.x, mousePosition.y]);
+  }, [width, height, mousePosition]);
 
   return (
     <div ref={newRef} style={{height: '100vh', position: 'absolute', zIndex: 0}}>

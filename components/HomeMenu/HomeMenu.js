@@ -5,7 +5,6 @@ import MenuItems from "./MenuItems";
 import Link from "next/link";
 
 const HomeMenu = ({ width, height }) => {
-  const [menuItemPosX, setMenuItemPosX] = useState([]);
   const [menuItemPosY, setMenuItemPosY] = useState([]);
   const [menuItemRot, setMenuItemRot] = useState([]);
   const menuItemRef = useRef([]);
@@ -18,18 +17,16 @@ const HomeMenu = ({ width, height }) => {
 
     function changeMenuItemPos() {
       loop = requestAnimationFrame(changeMenuItemPos);
-      time += 0.00005;
+      time += 0.0001;
       rotTime += 0.005;
-      const randomPosX = MenuItems.map(
-        (el, i) => Math.abs(noise2d(time + i, time + i)) * width
-      );
       const randomPosY = MenuItems.map(
-        (el, i) => Math.abs(noise2d(time + (i + 10), time + (i + 10))) * height
+        (el, i) => {
+          const yPos = Math.abs(noise2d(time + (i + 10), time + (i + 10))) * height;
+          if (yPos <= height) {return yPos} else {return yPos - 20}}
       );
       const randomRot = MenuItems.map(
-        (el, i) => noise2d(rotTime + (i + 20), rotTime + (i + 20)) * 5
+        (el, i) => noise2d(rotTime + (i + 10), rotTime + (i + 10)) * 20
       );
-      setMenuItemPosX(randomPosX);
       setMenuItemPosY(randomPosY);
       setMenuItemRot(randomRot);
     }
@@ -49,7 +46,6 @@ const HomeMenu = ({ width, height }) => {
           key={`menu-item-${i}`}
           style={{
             top: menuItemPosY[i],
-            left: menuItemPosX[i],
             transform: `rotate(${menuItemRot[i]}deg)`,
           }}
           ref={(el) => (menuItemRef.current[i] = el)}

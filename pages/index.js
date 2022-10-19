@@ -3,7 +3,7 @@ import HomeMenu from "../components/HomeMenu/HomeMenu";
 import useMouse from "@react-hook/mouse-position";
 import { createNoise2D } from "simplex-noise";
 
-import { useRef, createRef } from "react";
+import { useRef } from "react";
 import BackgroundLines from "../components/GLSL/BackgroundLines";
 
 export default function Home({width, height}) {
