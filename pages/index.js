@@ -1,8 +1,5 @@
-import Ellipse from "../components/Ellipse/Ellipse";
 import HomeMenu from "../components/HomeMenu/HomeMenu";
-import useMouse from "@react-hook/mouse-position";
 import { createNoise2D } from "simplex-noise";
-
 import { useRef } from "react";
 import BackgroundLines from "../components/GLSL/BackgroundLines";
 

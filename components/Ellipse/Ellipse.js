@@ -1,4 +1,4 @@
-import styles from "./ellipse.module.scss";
+import styles from "./Ellipse.module.scss";
 
 export default function Ellipse({ mousePosition }) {
   return (
