@@ -12,6 +12,7 @@ const BackArrow = (props) => {
             height={40}
             width={70}
             className={styles.arrow}
+            alt="return home"
           />
         </a>
       </Link>

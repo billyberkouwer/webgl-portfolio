@@ -182,7 +182,7 @@ const BackgroundLines = forwardRef(({width, height, noiseDisplacement}, ref) => 
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
     let mousePos = 0;
-    
+
     if (mousePosition.x !== null) {
       mousePositionRef.current.x = mousePosition.x;
     }
@@ -228,7 +228,7 @@ const BackgroundLines = forwardRef(({width, height, noiseDisplacement}, ref) => 
       cancelAnimationFrame(loop);
     };
     
-  }, [width, height, mousePosition]);
+  }, [width, height, mousePosition, noiseDisplacement]);
 
   return (
     <div ref={newRef} style={{height: '100vh', position: 'absolute', zIndex: 0}}>
@@ -250,5 +250,7 @@ const BackgroundLines = forwardRef(({width, height, noiseDisplacement}, ref) => 
     </div>
   );
 });
+
+BackgroundLines.displayName = "BackgroundLines";
 
 export default BackgroundLines;
