@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createNoise2D } from "simplex-noise";
 import styles from "./HomeMenu.module.scss";
 import MenuItems from "./MenuItems";
@@ -10,7 +10,7 @@ const HomeMenu = ({ width, height }) => {
   const [menuItemRot, setMenuItemRot] = useState([]);
   const menuItemRef = useRef([]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const noise2d = createNoise2D();
     let time = 1;
     let rotTime = 1;
