@@ -31,9 +31,9 @@ const BackgroundLines = forwardRef(({width, height, noiseDisplacement}, ref) => 
         [x_X, y_X, z_X] = [
           (x_X +=
             1 / X +
-            Math.abs(noiseDisplacement((pointX * 5 + time) / X, 0) / (X * 4))),
-          (y_X += noiseDisplacement((pointX * 5 + time) / X, 0) / (X * 4)),
-          (z_X += noiseDisplacement((pointX * 5 + time) / X, 0) / (X * 4)),
+            Math.abs(noiseDisplacement((pointX * time / 30) / X, 0) / (X * 4))),
+          (y_X += noiseDisplacement((pointX * time / 30) / X, 0) / (X * 4)),
+          (z_X += noiseDisplacement((pointX * time / 30) / X, 0) / (X * 4)),
         ];
         const xVertex = (vec3.create(), [x_X, y_X, z_X]);
         points.push(...xVertex);
@@ -41,13 +41,13 @@ const BackgroundLines = forwardRef(({width, height, noiseDisplacement}, ref) => 
 
         for (let pointY = 0; pointY < Y; pointY++) {
           [x_Y, y_Y, z_Y] = [
-            (x_Y += noiseDisplacement((pointY * 5 + time) / Y, 0) / (Y * 6)),
+            (x_Y += noiseDisplacement((pointY * time / 30) / Y, 0) / (Y * 6)),
             (y_Y +=
               1 / X +
               Math.abs(
-                noiseDisplacement((pointY * 5 + time) / Y, 0) / (Y * 4)
+                noiseDisplacement((pointY * time / 30) / Y, 0) / (Y * 4)
               )),
-            (z_Y += noiseDisplacement((pointY * 5 + time) / Y, 0) / (Y * 6)),
+            (z_Y += noiseDisplacement((pointY * time / 30) / Y, 0) / (Y * 6)),
           ];
           const yVertex = (vec3.create(), [x_Y, y_Y, z_Y]);
           points.push(...yVertex);
@@ -193,9 +193,9 @@ const BackgroundLines = forwardRef(({width, height, noiseDisplacement}, ref) => 
     function animate() {
       loop = requestAnimationFrame(animate);
       time.current+=1;
-      mousePos = (-mousePositionRef.current.y/10 ) + (-mousePositionRef.current.x/10 ) + time.current;
+      mousePos = (-mousePositionRef.current.y/30 ) + (-mousePositionRef.current.x/30 ) + (time.current/100);
       console.log(mousePos)
-      createColor(mousePos / 200);
+      createColor(time.current / 200);
       let displacedVertexes = generatePointVertex(mousePos);
       gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
       gl.bufferData(
